@@ -1,0 +1,84 @@
+.resume-header {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.resume-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+}
+
+.experience-section,
+.github-section {
+    padding: 2.5rem;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+    border-left: 2px solid rgba(102, 252, 241, 0.2);
+}
+
+.timeline-item:last-child {
+    border-left-color: transparent;
+    padding-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -8px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+.text-sm {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+.projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.project-card {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateX(10px);
+    border-color: rgba(102, 252, 241, 0.4);
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+@media screen and (max-width: 900px) {
+    .resume-grid {
+        grid-template-columns: 1fr;
+    }
+}
