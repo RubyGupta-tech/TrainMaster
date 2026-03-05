@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Video, MapPin, Calendar, Clock, CheckCircle } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import './Courses.css';
 
 const coursesData = [
@@ -50,12 +51,22 @@ const Courses = () => {
 
     return (
         <div className="courses-page">
-            <div className="courses-header text-center mb-4">
+            <motion.div
+                className="courses-header text-center mb-4"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+            >
                 <h1 className="mb-2">Training <span className="text-gradient">Masterclasses</span></h1>
                 <p className="text-muted">Explore my expert-led courses available both online and in-person.</p>
-            </div>
+            </motion.div>
 
-            <div className="filter-controls glass-panel mb-4">
+            <motion.div
+                className="filter-controls glass-panel mb-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+            >
                 <button
                     className={filter === 'all' ? 'btn-primary' : 'btn-outline'}
                     onClick={() => setFilter('all')}>
@@ -71,33 +82,43 @@ const Courses = () => {
                     onClick={() => setFilter('offline')}>
                     Offline / On-site
                 </button>
-            </div>
+            </motion.div>
 
-            <div className="courses-grid">
-                {filteredCourses.map(course => (
-                    <div key={course.id} className="course-card glass-panel">
-                        <div className="course-card-header mb-2">
-                            <div className="course-icon">{course.icon}</div>
-                            <span className="course-badge">{course.type === 'online' ? 'Virtual' : 'In-Person'}</span>
-                        </div>
-                        <h3 className="mb-2">{course.title}</h3>
-                        <p className="text-muted mb-4">{course.description}</p>
+            <motion.div layout className="courses-grid">
+                <AnimatePresence>
+                    {filteredCourses.map((course, idx) => (
+                        <motion.div
+                            key={course.id}
+                            className="course-card glass-panel"
+                            layout
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
+                            transition={{ duration: 0.4, delay: idx * 0.1 }}
+                        >
+                            <div className="course-card-header mb-2">
+                                <div className="course-icon">{course.icon}</div>
+                                <span className="course-badge">{course.type === 'online' ? 'Virtual' : 'In-Person'}</span>
+                            </div>
+                            <h3 className="mb-2">{course.title}</h3>
+                            <p className="text-muted mb-4">{course.description}</p>
 
-                        <div className="course-meta mb-4 text-muted">
-                            <span className="meta-item"><Clock size={16} /> {course.duration}</span>
-                            <span className="meta-item"><Calendar size={16} /> Next: TBA</span>
-                        </div>
+                            <div className="course-meta mb-4 text-muted">
+                                <span className="meta-item"><Clock size={16} /> {course.duration}</span>
+                                <span className="meta-item"><Calendar size={16} /> Next: TBA</span>
+                            </div>
 
-                        <ul className="course-features mb-4 text-muted">
-                            {course.features.map((feat, idx) => (
-                                <li key={idx}><CheckCircle size={14} className="text-accent" /> {feat}</li>
-                            ))}
-                        </ul>
+                            <ul className="course-features mb-4 text-muted">
+                                {course.features.map((feat, i) => (
+                                    <li key={i}><CheckCircle size={14} className="text-accent" /> {feat}</li>
+                                ))}
+                            </ul>
 
-                        <button className="btn-primary w-100">Reserve Spot</button>
-                    </div>
-                ))}
-            </div>
+                            <button className="btn-primary w-100">Reserve Spot</button>
+                        </motion.div>
+                    ))}
+                </AnimatePresence>
+            </motion.div>
         </div>
     );
 };

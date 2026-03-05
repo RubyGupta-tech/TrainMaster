@@ -1,0 +1,57 @@
+.blog-header {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(102, 252, 241, 0.4);
+}
+
+.blog-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.blog-category,
+.blog-date {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.blog-category {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.read-more {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    margin-top: auto;
+    font-size: 0.95rem;
+}
+
+.read-more:hover {
+    gap: 0.8rem;
+    /* Creates a slide effect on the arrow */
+}

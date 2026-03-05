@@ -8,23 +8,23 @@
   --text-muted: #c5c6c7;
   --accent-color: #66fcf1;
   --accent-secondary: #45a29e;
-  
+
   /* Glassmorphism */
   --glass-bg: rgba(31, 40, 51, 0.4);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-blur: blur(16px);
-  
+
   /* Spacing */
   --space-sm: 0.5rem;
   --space-md: 1rem;
   --space-lg: 2rem;
   --space-xl: 4rem;
-  
+
   /* Radii */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 24px;
-  
+
   /* Typography */
   --font-sans: 'Inter', sans-serif;
   --font-heading: 'Outfit', sans-serif;
@@ -36,7 +36,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   background: var(--bg-color);
   background-image: var(--bg-gradient);
   color: var(--text-main);
@@ -47,7 +48,12 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
@@ -138,4 +144,19 @@ a:hover {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--space-lg);
+}
+
+/* Light Theme Variables */
+body.light-mode {
+  --bg-color: #ffffff;
+  --bg-gradient: radial-gradient(circle at 15% 50%, #f1f5f9, #ffffff);
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --accent-color: #0284c7;
+  /* Visible blue */
+  --accent-secondary: #0369a1;
+
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --glass-blur: blur(20px);
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import { ArrowRight, Download, Award, Target, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import Testimonials from '../components/Testimonials';
 import './Home.css';
 
 const Home = () => {
@@ -8,7 +10,12 @@ const Home = () => {
         <div className="home-page">
             {/* Hero Section */}
             <section className="hero-section">
-                <div className="hero-content">
+                <motion.div
+                    className="hero-content"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                >
                     <h1 className="hero-title">
                         Elevating Teams &<br />
                         <span className="text-accent">Careers</span> through Expert<br />
@@ -25,20 +32,32 @@ const Home = () => {
                             View My Resume
                         </Link>
                     </div>
-                </div>
-                <div className="hero-visual">
+                </motion.div>
+
+                <motion.div
+                    className="hero-visual"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                >
                     <div className="glass-panel visual-card">
                         <div className="visual-badge"><Award size={32} className="text-accent" /></div>
                         <h3>Certified PMP Trainer</h3>
                         <p className="text-muted">Over 10 years of successfully delivering high-stakes projects.</p>
                     </div>
-                </div>
+                </motion.div>
             </section>
 
             {/* About Me Section */}
             <section className="about-section glass-panel">
                 <div className="about-grid">
-                    <div className="about-text">
+                    <motion.div
+                        className="about-text"
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
                         <h2>About Me</h2>
                         <p className="text-muted mb-4">
                             I specialize in bridging the gap between strategic vision and flawless execution. My focus is on empowering professionals and organizations through practical, hands-on training via Zoom, Google Meet, and on-site masterclasses.
@@ -46,21 +65,36 @@ const Home = () => {
                         <a href="/resume.pdf" download="My_Resume.pdf" className="btn-outline" style={{ textDecoration: 'none' }}>
                             <Download size={18} /> Download Resumé
                         </a>
-                    </div>
+                    </motion.div>
                     <div className="about-stats">
-                        <div className="stat-card glass-panel">
+                        <motion.div
+                            className="stat-card glass-panel"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                        >
                             <Target size={28} className="text-accent mb-2" />
                             <h3>50+</h3>
                             <p className="text-muted">Projects Delivered</p>
-                        </div>
-                        <div className="stat-card glass-panel">
+                        </motion.div>
+                        <motion.div
+                            className="stat-card glass-panel"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
+                        >
                             <Users size={28} className="text-accent mb-2" />
                             <h3>1000+</h3>
                             <p className="text-muted">Students Trained</p>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
+
+            {/* Testimonials Section */}
+            <Testimonials />
         </div>
     );
 };

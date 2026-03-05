@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Briefcase, GraduationCap, FileText, Mail } from 'lucide-react';
+import { Menu, X, Briefcase, GraduationCap, FileText, Mail, Moon, Sun, BookOpen } from 'lucide-react';
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ theme, toggleTheme }) => {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
 
@@ -44,6 +44,20 @@ const Navbar = () => {
                         <Link to="/contact" className={getLinkClass('/contact')} onClick={toggleMenu}>
                             <Mail size={18} className="nav-icon" /> Contact
                         </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/insights" className={getLinkClass('/insights')} onClick={toggleMenu}>
+                            <BookOpen size={18} className="nav-icon" /> Insights
+                        </Link>
+                    </li>
+                    <li className="nav-item" style={{ marginLeft: '1rem' }}>
+                        <button
+                            onClick={toggleTheme}
+                            className="theme-toggle"
+                            aria-label="Toggle Theme"
+                        >
+                            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+                        </button>
                     </li>
                 </ul>
             </div>
