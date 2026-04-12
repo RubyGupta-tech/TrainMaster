@@ -4,12 +4,11 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Courses from './pages/Courses';
-import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 
 function App() {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
   useEffect(() => {
     if (theme === 'light') {
@@ -31,7 +30,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/courses" element={<Courses />} />
-          <Route path="/resume" element={<Resume />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/insights" element={<Blog />} />
         </Routes>

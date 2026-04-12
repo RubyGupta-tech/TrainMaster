@@ -9,21 +9,24 @@ const blogPosts = [
         title: 'The Real Difference Between Agile and Scrum',
         excerpt: 'Many teams confuse Agile philosophy with the Scrum framework. Here is how keeping them distinct can save your next software project.',
         date: 'March 15, 2026',
-        category: 'Methodology'
+        category: 'Methodology',
+        image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800'
     },
     {
         id: 2,
         title: 'Top 5 Monte Carlo Simulation Mistakes in PM',
         excerpt: 'Risk analysis is crucial, but garbage-in equals garbage-out when running Monte Carlo simulations. Avoid these common data anti-patterns.',
         date: 'February 28, 2026',
-        category: 'Risk Management'
+        category: 'Risk Management',
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800'
     },
     {
         id: 3,
         title: 'Scaling Remote Team Communication Asynchronously',
         excerpt: 'Zoom fatigue is real. How to transition your delivery teams to an async-first culture while still hitting every sprint goal.',
         date: 'January 10, 2026',
-        category: 'Leadership'
+        category: 'Leadership',
+        image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800'
     }
 ];
 
@@ -50,15 +53,21 @@ const Blog = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: idx * 0.15 }}
                     >
-                        <div className="blog-meta text-muted mb-2">
-                            <span className="blog-category"><BookOpen size={14} /> {post.category}</span>
-                            <span className="blog-date"><Calendar size={14} /> {post.date}</span>
+                        <div className="blog-card-visual">
+                            <img src={post.image} alt={post.title} className="blog-img" />
+                            <div className="blog-card-overlay"></div>
                         </div>
-                        <h3 className="blog-title mb-2">{post.title}</h3>
-                        <p className="text-muted mb-4">{post.excerpt}</p>
-                        <a href="#" className="read-more text-accent">
-                            Read Article <ArrowRight size={16} />
-                        </a>
+                        <div className="blog-card-content">
+                            <div className="blog-meta text-muted mb-2">
+                                <span className="blog-category"><BookOpen size={14} /> {post.category}</span>
+                                <span className="blog-date"><Calendar size={14} /> {post.date}</span>
+                            </div>
+                            <h3 className="blog-title mb-2">{post.title}</h3>
+                            <p className="text-muted mb-4">{post.excerpt}</p>
+                            <a href="#" className="read-more text-accent">
+                                Read Article <ArrowRight size={16} />
+                            </a>
+                        </div>
                     </motion.div>
                 ))}
             </div>

@@ -8,7 +8,17 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    padding: 1rem 0;
+    padding: 1.25rem 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+body.light-mode .navbar {
+    background: rgba(255, 255, 255, 0.8) !important;
 }
 
 .nav-container {
@@ -18,17 +28,42 @@
 }
 
 .nav-logo {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    font-weight: 800;
     display: flex;
     align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.logo-icon {
+    height: 60px; /* Further increased size */
+    width: auto;
+    object-fit: contain;
+    border-radius: 14px;
+    padding: 2px; /* Add some internal padding */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+    border: 2px solid var(--accent-color); /* Themed border for maximum visibility */
+    background: #ffffff;
+    z-index: 10;
+}
+
+body.light-mode .logo-icon {
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+    border-color: var(--accent-color);
+}
+
+.nav-logo:hover .logo-icon {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 12px 30px rgba(56, 189, 248, 0.3);
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 2.5rem;
     align-items: center;
 }
 
@@ -40,12 +75,13 @@
 .nav-link {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 1rem;
-    font-weight: 500;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    font-weight: 600;
     color: var(--text-main);
     position: relative;
-    padding-bottom: 0.25rem;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
 }
 
 .nav-link::after {
@@ -55,8 +91,12 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: var(--accent-color);
-    transition: width 0.3s ease;
+    background: var(--accent-gradient);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
 }
 
 .nav-link:hover::after,
@@ -69,13 +109,24 @@
 }
 
 .nav-icon {
-    opacity: 0.8;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover .nav-icon {
+    opacity: 1;
 }
 
 .menu-icon {
     display: none;
     cursor: pointer;
     color: var(--text-main);
+}
+
+@media screen and (max-width: 992px) {
+    .nav-menu {
+        gap: 1.5rem;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -89,13 +140,15 @@
         top: 100%;
         left: 0;
         width: 100%;
-        padding: 2rem 0;
-        margin-top: 1rem;
+        padding: 3rem 0;
+        margin-top: 0;
         opacity: 0;
         visibility: hidden;
-        transform: translateY(-10px);
-        transition: all 0.3s ease;
-        border-radius: 0 0 var(--radius-md) var(--radius-md);
+        transform: translateY(-20px);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+        background: var(--bg-color) !important;
+        border-bottom: 1px solid var(--glass-border);
     }
 
     .nav-menu.active {
@@ -111,27 +164,28 @@
     }
 
     .nav-link {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
+        padding: 1rem;
     }
 }
 
 .theme-toggle {
     background: transparent;
     color: var(--text-main);
-    border: 1px solid var(--glass-border);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    border: 1.5px solid var(--glass-border);
+    border-radius: 12px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .theme-toggle:hover {
-    background: rgba(102, 252, 241, 0.1);
+    background: rgba(56, 189, 248, 0.1);
     border-color: var(--accent-color);
     color: var(--accent-color);
-    transform: rotate(15deg);
+    transform: translateY(-2px) rotate(15deg);
 }

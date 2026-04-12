@@ -11,7 +11,8 @@ const coursesData = [
         description: 'A comprehensive 4-week bootcamp delivered via remote Zoom sessions. Perfect for aspiring Scrum Masters.',
         duration: '4 Weeks',
         features: ['Live Interactive Sessions', 'Real-world Case Studies', 'Certification Prep', 'Access to Recordings'],
-        icon: <Video size={24} className="text-accent" />
+        icon: <Video size={24} />,
+        image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800'
     },
     {
         id: 2,
@@ -20,7 +21,8 @@ const coursesData = [
         description: 'Learn the core principles of PMBOK in this intensive 2-week Google Meet masterclass.',
         duration: '2 Weeks',
         features: ['Interactive Meetups', 'Downloadable Resources', 'Q&A Sessions', 'Certificate of Completion'],
-        icon: <Video size={24} className="text-accent" />
+        icon: <Video size={24} />,
+        image: 'https://images.unsplash.com/photo-1454165833767-027ffea70250?auto=format&fit=crop&q=80&w=800'
     },
     {
         id: 3,
@@ -29,7 +31,8 @@ const coursesData = [
         description: 'On-site workshop designed for mid-level managers. Focuses on team alignment and delivery.',
         duration: '2 Days (Intensive)',
         features: ['In-person Collaboration', 'Hands-on Workshops', 'Networking', 'Custom Tailored Content'],
-        icon: <MapPin size={24} className="text-accent" />
+        icon: <MapPin size={24} />,
+        image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800'
     },
     {
         id: 4,
@@ -38,7 +41,8 @@ const coursesData = [
         description: 'A masterclass held at dedicated venues covering risk mitigation and crisis management.',
         duration: '1 Day',
         features: ['Expert Guest Speakers', 'Live Crisis Simulations', 'Catered Event', 'Networking Mixer'],
-        icon: <MapPin size={24} className="text-accent" />
+        icon: <MapPin size={24} />,
+        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800'
     }
 ];
 
@@ -96,12 +100,15 @@ const Courses = () => {
                             exit={{ opacity: 0, scale: 0.9 }}
                             transition={{ duration: 0.4, delay: idx * 0.1 }}
                         >
-                            <div className="course-card-header mb-2">
+                            <div className="course-card-visual">
+                                <img src={course.image} alt={course.title} className="course-img" />
+                                <div className="course-card-overlay"></div>
+                                <div className="course-badge">{course.type === 'online' ? 'Virtual' : 'In-Person'}</div>
                                 <div className="course-icon">{course.icon}</div>
-                                <span className="course-badge">{course.type === 'online' ? 'Virtual' : 'In-Person'}</span>
                             </div>
-                            <h3 className="mb-2">{course.title}</h3>
-                            <p className="text-muted mb-4">{course.description}</p>
+                            <div className="course-card-content">
+                                <h3 className="mb-2">{course.title}</h3>
+                                <p className="text-muted mb-4">{course.description}</p>
 
                             <div className="course-meta mb-4 text-muted">
                                 <span className="meta-item"><Clock size={16} /> {course.duration}</span>
@@ -115,6 +122,7 @@ const Courses = () => {
                             </ul>
 
                             <button className="btn-primary w-100">Reserve Spot</button>
+                            </div>
                         </motion.div>
                     ))}
                 </AnimatePresence>
