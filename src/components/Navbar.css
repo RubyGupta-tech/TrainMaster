@@ -37,27 +37,39 @@ body.light-mode .navbar {
     letter-spacing: -0.03em;
 }
 
-.logo-icon {
-    height: 60px; /* Further increased size */
-    width: auto;
-    object-fit: contain;
-    border-radius: 14px;
-    padding: 2px; /* Add some internal padding */
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Stronger shadow */
-    border: 2px solid var(--accent-color); /* Themed border for maximum visibility */
+.logo-wrapper {
+    width: 65px; /* Final visible size */
+    height: 65px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    border: 2px solid var(--accent-color);
     background: #ffffff;
-    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
 }
 
-body.light-mode .logo-icon {
-    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
-    border-color: var(--accent-color);
+.logo-icon {
+    width: 140px; /* Over-sized to facilitate cropping */
+    height: auto;
+    object-fit: contain;
+    transform: scale(1.6); /* Zoom in to eliminate white space */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.light-mode .logo-wrapper {
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.1);
+}
+
+.nav-logo:hover .logo-wrapper {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 12px 35px rgba(56, 189, 248, 0.25);
 }
 
 .nav-logo:hover .logo-icon {
-    transform: scale(1.1) translateY(-3px);
-    box-shadow: 0 12px 30px rgba(56, 189, 248, 0.3);
+    transform: scale(1.7); /* Extra zoom on hover */
 }
 
 .nav-menu {

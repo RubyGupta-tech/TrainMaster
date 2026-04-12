@@ -18,7 +18,9 @@ const Navbar = ({ theme, toggleTheme }) => {
         <nav className="navbar glass-panel">
             <div className="container nav-container">
                 <Link to="/" className="nav-logo" onClick={() => setIsOpen(false)}>
-                    <img src={logo} alt="TrainMaster Logo" className="logo-icon" />
+                    <div className="logo-wrapper">
+                        <img src={logo} alt="TrainMaster Logo" className="logo-icon" />
+                    </div>
                     <span className="text-accent">Train</span><span className="text-gradient">Master</span>
                 </Link>
 
