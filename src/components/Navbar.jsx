@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Briefcase, GraduationCap, FileText, Mail, Moon, Sun, BookOpen } from 'lucide-react';
-import logo from '../assets/logo.png';
+import logoGraphic from '../assets/logo_graphic.png';
 import './Navbar.css';
 
 const Navbar = ({ theme, toggleTheme }) => {
@@ -19,7 +19,11 @@ const Navbar = ({ theme, toggleTheme }) => {
             <div className="container nav-container">
                 <Link to="/" className="nav-logo" onClick={() => setIsOpen(false)}>
                     <div className="logo-wrapper">
-                        <img src={logo} alt="TrainMaster Logo" className="logo-icon" />
+                        <img src={logoGraphic} alt="TrainMaster" className="logo-icon" />
+                    </div>
+                    <div className="brand-text">
+                        <span className="brand-name"><span className="text-accent">Train</span>Master</span>
+                        <span className="brand-tagline">Project Management</span>
                     </div>
                 </Link>
 
