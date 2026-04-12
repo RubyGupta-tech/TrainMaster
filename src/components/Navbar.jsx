@@ -21,7 +21,6 @@ const Navbar = ({ theme, toggleTheme }) => {
                     <div className="logo-wrapper">
                         <img src={logo} alt="TrainMaster Logo" className="logo-icon" />
                     </div>
-                    <span className="text-accent">Train</span><span className="text-gradient">Master</span>
                 </Link>
 
                 <div className="menu-icon" onClick={toggleMenu}>

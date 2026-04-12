@@ -41,36 +41,38 @@ body.light-mode .navbar {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 55px; /* Balanced height */
-    padding: 2px;
-    border-radius: 10px;
+    height: 60px; /* Increased for standalone prominence */
+    width: auto;
+    min-width: 120px; /* Wider to accommodate text-inclusive logos */
+    padding: 4px 12px;
+    border-radius: 12px;
     background: #ffffff;
-    border: 1.5px solid var(--accent-color);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: all 0.4s ease;
 }
 
 .logo-icon {
-    height: 100%; /* Fill the wrapper height */
+    height: 100%;
     width: auto;
     object-fit: contain;
-    transform: scale(1.1); /* Subtle zoom only, to avoid cutting */
+    transform: scale(1.15);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body.light-mode .logo-wrapper {
-    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.1);
 }
 
 .nav-logo:hover .logo-wrapper {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(56, 189, 248, 0.25);
     border-color: var(--accent-secondary);
 }
 
 .nav-logo:hover .logo-icon {
-    transform: scale(1.15); /* Very subtle hover zoom */
+    transform: scale(1.2);
 }
 
 .nav-menu {
