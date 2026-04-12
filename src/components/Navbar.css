@@ -38,38 +38,39 @@ body.light-mode .navbar {
 }
 
 .logo-wrapper {
-    width: 65px; /* Final visible size */
-    height: 65px;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
-    border: 2px solid var(--accent-color);
+    height: 55px; /* Balanced height */
+    padding: 2px;
+    border-radius: 10px;
     background: #ffffff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1.5px solid var(--accent-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
     transition: all 0.4s ease;
 }
 
 .logo-icon {
-    width: 140px; /* Over-sized to facilitate cropping */
-    height: auto;
+    height: 100%; /* Fill the wrapper height */
+    width: auto;
     object-fit: contain;
-    transform: scale(1.6); /* Zoom in to eliminate white space */
+    transform: scale(1.1); /* Subtle zoom only, to avoid cutting */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body.light-mode .logo-wrapper {
-    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.1);
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
 }
 
 .nav-logo:hover .logo-wrapper {
-    transform: scale(1.05) translateY(-2px);
-    box-shadow: 0 12px 35px rgba(56, 189, 248, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+    border-color: var(--accent-secondary);
 }
 
 .nav-logo:hover .logo-icon {
-    transform: scale(1.7); /* Extra zoom on hover */
+    transform: scale(1.15); /* Very subtle hover zoom */
 }
 
 .nav-menu {
