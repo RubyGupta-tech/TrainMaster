@@ -8,13 +8,13 @@ import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 
 function App() {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
 
   useEffect(() => {
-    if (theme === 'light') {
-      document.body.classList.add('light-mode');
-    } else {
+    if (theme === 'dark') {
       document.body.classList.remove('light-mode');
+    } else {
+      document.body.classList.add('light-mode');
     }
     localStorage.setItem('theme', theme);
   }, [theme]);
